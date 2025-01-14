@@ -21,7 +21,7 @@ echo "Found $container_count containers in the file."
 
 for container in "${containers[@]}"; do
     # Create a safe name for the Dockerfile
-    safe_name=$(echo "$container" | tr '/:' '__')
+    safe_name=$(echo "$container" | tr '/:' '_test')
 
     # Create Dockerfile
     cat << EOF > "Dockerfile_${safe_name}"
