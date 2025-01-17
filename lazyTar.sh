@@ -29,7 +29,7 @@ while IFS= read -r image; do
     if docker image inspect "$image" >/dev/null 2>&1; then
         echo "Saving image: $image"
         # Save the image as a tarball
-        docker save "$image" | gzip > "docker_images/${safe_name}.tar.gz"
+        docker save "$image" -o "docker_images/${safe_name}.tar"
     else
         echo "Image not found locally: $image"
     fi
